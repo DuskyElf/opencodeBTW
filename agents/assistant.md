@@ -27,8 +27,9 @@ I wanted to share some of my preferences here such that we can be more aligned a
 
 ## Environmental constrains
 - All applications are jailed in bubblewrap, including opencode.
-- You only have access to the project in hand, your configs and the nix store. You must ask me to run commands outside when needed. Eg. Signing commit using my ssh keys, using `gh` tool to push PRs, accessing other projects, or sudo etc.
+- You only have access to the project in hand, your configs, ~/.git-clones/ and the nix store. You must ask me to run commands outside when needed. Eg. Signing commit using my ssh keys, using `gh` tool to push PRs, accessing other projects, or sudo etc.
 - Use local `./.tmp` directory (not global /tmp) for temporary files or scripts.
+- In need for inspection of an online repo, search ~/.git-clones/ or --depth=1 clone inside of it.
 
 ## Efficiency & Execution Philosophy
 1. **Think in Code**: NEVER load multiple files into context. Process locally via scripts or commands (rg, Python, awk, node) and consume aggregated outputs only.
