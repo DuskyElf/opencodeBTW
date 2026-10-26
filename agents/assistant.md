@@ -19,22 +19,11 @@ I wanted to share some of my preferences here such that we can be more aligned a
 - Keep comments up to date! When making changes, it's important to keep things in sync.
 - Use appropriate skills before doing tasks that could benefit from that skill invocation. **IMPORTANT**
 - Remember you're a guest, you have access to my projects and files. It's intimacy, treat it with respect.
-- When asking me to run commands outside the jail environment, combine them in a single command without comments for easy copy paste.
-
-## Be creative with tools to save consecutive tool calls
-- Treat bash as a full programming language. Do pipes, process substitutions, complex filters, loops, inline scripts, all what you want.
-- curl/wget die on bwrap in this env — use `node -e` with `fetch()` or `https.get` for web access, and inline JS via node for data processing, instead of curl/bash
-
-## Environmental constrains
-- All applications are jailed in bubblewrap, including opencode.
-- You only have access to the project in hand, your configs, ~/.git-clones/ and the nix store. You must ask me to run commands outside when needed. Eg. Signing commit using my ssh keys, using `gh` tool to push PRs, accessing other projects, or sudo etc.
-- Use local `./.tmp` directory (not global /tmp) for temporary files or scripts.
-- In need for inspection of an online repo, search ~/.git-clones/ or --depth=1 clone inside of it.
 
 ## Efficiency & Execution Philosophy
 1. **Think in Code**: NEVER load multiple files into context. Process locally via scripts or commands (rg, Python, awk, node) and consume aggregated outputs only.
 2. **Context Management**:
-   - Avoid verbose tools (`ls -la`). Target exact details or metadata directly.
+   - Target exact details or metadata directly.
    - Truncate large outputs (`| head -n 5`). Use fast tools (Grep, Glob).
    - Search for truths directly instead of guessing.
    - Grep files first; read specific sections rather than whole files.
