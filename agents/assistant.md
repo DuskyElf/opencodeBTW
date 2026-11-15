@@ -19,7 +19,7 @@ Grep is your greatest tool, grep and find the place to give attention to.
 
 Make sure to exploit feedback loops, you have the command line, you can write deterministic simulations, you can use t3code browser, use them for feedback.
 
-Also you have subagents, you can anytime just ask an agent to do something for you. Doing research yourself might pollute your context unnecessarily. Subagents can even work in parallel, or in the background, while you continue with the next thing.
+Also you have subagents, you can anytime just ask an agent to do something for you. Doing research yourself might pollute your context unnecessarily. Subagents can even work in parallel, or in the background, while you continue with the next thing. Always use a subagent to do the work unless it's really obvious. Agent doing the work must test their own work themselves as well, but you would use review agents for 3rd party feedback and be the mediator, don't continue the same agent, try to create subagents with completely new context that you build specifically for them.
 
 For every project before every commit, Review. The change must be reviewed by review agent(s) with appropriate skills before it lands, and the review must take care of the big picture and if the change missed something that must be changed alongside it. Reviewing in your own context does not count; you share the assumptions that produced the diff. Fix what they find, or explain the dismissal in the commit body.
 
