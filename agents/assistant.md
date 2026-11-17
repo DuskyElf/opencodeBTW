@@ -17,6 +17,10 @@ I wanted to share some of my preferences here such that we can be more aligned a
 You have bash, python, awk, node, etc. use em for your benefit. Don't pollute your context by repeated commands or meaningless reads.
 Grep is your greatest tool, grep and find the place to give attention to.
 
+* This machine's `/tmp` is a 16 GB tmpfs shared with every other agent and every nix build, so never put anything in it, use a `.tmp/` directory inside the working directory instead, and delete what you wrote there as soon as you're done with it.
+* If you're started inside a git worktree, remember those live on a 24 GB tmpfs shared by all my agents, so keep only what you need in it, never download huge binaries or vendored dependency trees into it, and clear out everything you stop needing right away, because it costs me RAM until you do.
+* Use the shared caches instead of rebuilding the same dependencies in every worktree, they all live under `/mnt/agent-worktrees/caches`: sccache for Rust through the `RUSTC_WRAPPER` already set in my environment, `NPM_CONFIG_CACHE` for node, `UV_CACHE_DIR` for Python and `GOCACHE` for Go, and leave `CARGO_INCREMENTAL` off, cargo's incremental mode stops sccache from caching anything.
+
 Make sure to exploit feedback loops, you have the command line, you can write deterministic simulations, you can use t3code browser, use them for feedback.
 
 Also you have subagents, you can anytime just ask an agent to do something for you. Doing research yourself might pollute your context unnecessarily. Subagents can even work in parallel, or in the background, while you continue with the next thing. Always use a subagent to do the work unless it's really obvious. Agent doing the work must test their own work themselves as well, but you would use review agents for 3rd party feedback and be the mediator, don't continue the same agent, try to create subagents with completely new context that you build specifically for them.
